@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """Define una clase Square que representa un cuadrado."""
 
 
