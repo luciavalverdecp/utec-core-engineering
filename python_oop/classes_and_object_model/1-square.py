@@ -5,4 +5,4 @@
 class Square:
     """Representa un cuadrado."""
     def __init__(self, size):
-        self.size = 3
+        self.size = size
