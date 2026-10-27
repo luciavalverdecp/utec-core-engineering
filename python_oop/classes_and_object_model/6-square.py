@@ -43,7 +43,15 @@ class Square:
 
     def my_print(self):
         """Imprime el cuadrado en stdout."""
-        print(self)
+        if self.__size == 0:
+            print()
+            return
+
+        for _ in range(self.__position[0]):
+            print()
+
+        for _ in range(self.__size):
+            print(" " * self.__position[1] + "#" * self.__size)
 
     def __str__(self):
         """Devuelve la representación del cuadrado como una cadena."""
