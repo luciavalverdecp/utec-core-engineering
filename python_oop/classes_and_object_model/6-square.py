@@ -4,19 +4,15 @@
 
 class Square:
     """Representa un cuadrado."""
+
     def __init__(self, size=0, position=(0, 0)):
-        self.__size = size
-        self.__position = 
+        self.size = size
+        self.position = position
 
     @property
     def size(self):
         """Obtiene el tamaño del cuadrado."""
         return self.__size
-
-    @property
-    def position(self):
-        """Obtiene la posicion."""
-        return self.__position
 
     @size.setter
     def size(self, value):
@@ -26,18 +22,26 @@ class Square:
             raise ValueError("size must be >= 0")
         self.__size = value
 
+    @property
+    def position(self):
+        """Obtiene la posición."""
+        return self.__position
+
     @position.setter
     def position(self, value):
-        if type(value) is not tuple:
-            raise TypeError("position must be a tuple of 2 positive integer")
+        if (type(value) is not tuple or len(value) != 2
+                or any(type(n) is not int or n < 0 for n in value)):
+            raise TypeError(
+                "position must be a tuple of 2 positive integer")
         self.__position = value
 
     def area(self):
+        """Calcula el área del cuadrado."""
         return self.__size * self.__size
 
     def my_print(self):
         """Imprime el cuadrado."""
-        print(str(self), end="\n")
+        print(self)
 
     def __str__(self):
         """Devuelve el cuadrado como una cadena."""
