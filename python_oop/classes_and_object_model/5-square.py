@@ -27,6 +27,6 @@ class Square:
         if self.__size == 0:
             return 
 
-        for nro in range(__size):
+        for nro in range(self.__size):
             print("#" * self.__size)
 
