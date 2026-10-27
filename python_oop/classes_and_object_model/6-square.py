@@ -6,6 +6,7 @@ class Square:
     """Representa un cuadrado."""
 
     def __init__(self, size=0, position=(0, 0)):
+        """Inicializa un cuadrado con tamaño y posición opcionales."""
         self.size = size
         self.position = position
 
@@ -34,7 +35,7 @@ class Square:
         if (type(value) is not tuple or len(value) != 2
                 or any(type(n) is not int or n < 0 for n in value)):
             raise TypeError(
-                "position must be a tuple of 2 positive integers")
+                "position must be a tuple of 2 positive integer")
         self.__position = value
 
     def area(self):
@@ -43,13 +44,15 @@ class Square:
 
     def my_print(self):
         """Imprime el cuadrado en stdout."""
-        print(self, end="\n\n")
+        print(self)
 
     def __str__(self):
         """Devuelve la representación del cuadrado como una cadena."""
-        lines = [""] * self.__position[0]
+        if self.__size == 0:
+            return ""
 
+        lines = [""] * self.__position[1]
         for _ in range(self.__size):
-            lines.append(" " * self.__position[1] + "#" * self.__size)
+            lines.append(" " * self.__position[0] + "#" * self.__size)
 
         return "\n".join(lines)
